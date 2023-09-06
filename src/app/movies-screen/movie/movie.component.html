@@ -1,6 +1,17 @@
-<a routerLink="/movies-screen">Home</a>
-
-<br>
-<p>{{res?.title}}</p>
-<img src="{{image_paths + res?.poster_path}}" style="max-width: 200px;">
-<p > {{ res?.overview }}</p>
+<div class="body">
+    <div class="containers reg whole">
+      <div class="film">
+        <h1>{{res?.title}}</h1>
+        <div class="movieImage">
+          <img
+            src="{{image_paths + res?.poster_path}}"
+            width="500"
+            height="500"
+          />
+        </div>
+        <p>
+        {{ res?.overview }}
+        </p>
+      </div>
+    </div>
+  </div>

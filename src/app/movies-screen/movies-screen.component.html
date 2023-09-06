@@ -1,5 +1,5 @@
-<div>
-    <h3>Latest</h3>
+<div style="position: absolute; top:20%">
+    <h3 >Latest</h3>
     <div class="images-container">
         <div class="card" *ngFor="let post of posts?.results">
             <a [routerLink]="['movie',post?.id]" style="text-decoration: none;"   >
@@ -8,7 +8,7 @@
                 <img 
                 src="{{image_paths + post?.poster_path}}"
                 >
-                <p class="name" > {{ post?.title }}</p>
+                <p class="name"> {{ post?.title }}</p>
             </a>
         </div>
     </div>

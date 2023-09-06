@@ -11,7 +11,7 @@ img
     /* grid-template-columns: repeat(9, 1fr); */
     gap: 30px;
     /* overflow: scroll; */
-    /* direction: ltr; */
+    direction: ltr;
     /* overflow:; */
 }
 /* .container {
@@ -40,4 +40,9 @@ p
     margin-bottom: 4px;
     margin-top: 10px;
     font-weight: 700;
+    color: white;
+}
+h3
+{
+    color: yellow;
 }

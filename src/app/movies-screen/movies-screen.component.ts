@@ -20,9 +20,6 @@ export class MoviesScreenComponent {
     { 
       this.posts = data;
     }
-    // (error) =>{
-    //   console.log("hezar 8eles bsra7a");
-    // }
     )    
   }
   

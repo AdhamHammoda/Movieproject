@@ -1,2 +1,32 @@
+<body>
+
+    <nav
+    class="navbar navbar-expand-lg bg-body-tertiary position-fixed start-0 end-0 top-0 px-5 pb-3"
+    >
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="movies-screen">Home</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="" (click)="check_status()">{{Out}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<app-login-screen *ngIf="viewlogin"></app-login-screen>
+<!-- <br> -->
 <router-outlet></router-outlet>
-<!-- <app-movies-screen></app-movies-screen> -->
+<!-- <p style="position: absolute; top:20%">hell</p> -->
+</body>
