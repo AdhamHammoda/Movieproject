@@ -1,35 +1,25 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 img
 {
     max-width:200px;
     max-height:200px;
     border: 1px solid black;
 }
+.backclass
+{
+    position: absolute; 
+    top:20%;
+}
+.movie-data
+{
+    color: violet;
+}
 .images-container{
     display: flex;
     flex-direction: row;
-    /* flex-wrap: wrap; */
-    /* grid-template-columns: repeat(9, 1fr); */
     gap: 30px;
-    /* overflow: scroll; */
     direction: ltr;
-    /* overflow:; */
 }
-/* .container {
-    display: flex;
-    flex-direction: column;
-    max-width: 640px;
-    /* position: absolute; */
-    /* top:10%; */
-    /* gap: 30px; */ */
-    .card 
-    {
-        border-radius: 14px;
-        border: 1px solid #cdcdcd;
-        width: 200px;
-        overflow: hidden;
-
-    }
-
 p 
 {
     text-align: center;

@@ -4,7 +4,7 @@
         <h1>{{res?.title}}</h1>
         <div class="movieImage">
           <img
-            src="{{image_paths + res?.poster_path}}"
+            [src]="get_image_url(res?.poster_path)"
             width="500"
             height="500"
           />

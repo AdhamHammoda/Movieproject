@@ -1,17 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoginScreenComponent } from './login-screen.component';
+import { HomeComponent } from './home.component';
+import { LoginScreenComponent } from '../login-screen/login-screen.component';
 import { FormsModule } from '@angular/forms';
-describe('LoginScreenComponent', () => {
-  let component: LoginScreenComponent;
-  let fixture: ComponentFixture<LoginScreenComponent>;
+
+describe('HomeComponent', () => {
+  let component: HomeComponent;
+  let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LoginScreenComponent],
+      declarations: [HomeComponent,LoginScreenComponent],
       imports:[FormsModule]
     });
-    fixture = TestBed.createComponent(LoginScreenComponent);
+    fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

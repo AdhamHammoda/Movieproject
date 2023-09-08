@@ -9,11 +9,8 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    background-color: rgb(44, 46, 67, 0.5);
   }
-  .containers:hover {
-    box-shadow: #595260;
-  }
+ 
   
   .whole {
     display: flex;

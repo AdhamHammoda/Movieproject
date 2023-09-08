@@ -12,32 +12,37 @@ import { FormsModule } from '@angular/forms';
 import { AuthGuardService } from './auth-guard.service';
 import { PostService } from './services/post.service';
 import { mapToCanActivate } from '@angular/router';
-
-
+import { HomeComponent } from './home/home.component';
+import { MatProgressSpinnerModule  } from '@angular/material/progress-spinner'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressBarModule } from '@angular/material/progress-bar'; 
 const appRoutes: Routes = [
   {path:'movies-screen',component:MoviesScreenComponent,canActivate:mapToCanActivate([AuthGuardService])}
   ,
   {path:'movies-screen/movie/:id',component:MovieComponent,canActivate:mapToCanActivate([AuthGuardService])}
   ,
-  {path:'',component:AppComponent,canDeactivate:mapToCanDeactivate([AuthGuardService])}
+  {path:'home',component:HomeComponent,canDeactivate:mapToCanDeactivate([AuthGuardService])}
   ,
-  {path:'',redirectTo:'movies-screen',pathMatch:'full'}
-  ,
-  {path:'**',redirectTo:'movies-screen',pathMatch:'full'}
+  {path:'**',redirectTo:'home',pathMatch:'full'}
 ];
 @NgModule({
   declarations: [
     AppComponent,
     MoviesScreenComponent,
     MovieComponent,
-    LoginScreenComponent
+    LoginScreenComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
+    MatProgressSpinnerModule ,
+    BrowserAnimationsModule ,
+    MatProgressBarModule
+    
   ],
   providers: [AuthGuardService,PostService],
   bootstrap: [AppComponent]
