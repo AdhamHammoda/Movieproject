@@ -8,26 +8,16 @@ import { AuthGuardService } from '../auth-guard.service';
   styleUrls: ['./login-screen.component.css','bootstrap.min.css']
 })
 export class LoginScreenComponent {
-    arr =[{"mail":"a.hammoda@nu.edu.eg","password":"1234"},
-    {"mail":"adhamhammoda23@gmail.com","password":"1234"}];
-    logged_in: boolean= false;
     constructor(private activatedroute: Router,private authservice:AuthGuardService){}
     onsubmit(form: NgForm)
     {
       if(form.submitted)
       {
-        var found = false;
-        for(var i = 0; i < this.arr.length; i++) {
-            if (this.arr[i].mail ===form.value.useremail &&
-              this.arr[i].password ===form.value.pass) {
-                found = true;
-                break;
-            }
-        }
+        console.log(form);
+        let found:boolean=this.authservice.checkUser({"mail":form.value.useremail,"password":form.value.pass});
         if(form.valid && found) 
         {
-          this.activatedroute.navigate(['movies-screen']);
-          this.authservice.setValue(true);
+          this.authservice.setValue("2");
         }
         else
         {

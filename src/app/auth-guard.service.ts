@@ -5,24 +5,47 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthGuardService {
-  private loginInfo: BehaviorSubject<boolean>;
+  private login_Info: BehaviorSubject<string>;
   constructor()
   {
-    this.loginInfo= new BehaviorSubject<boolean> (false);
+    this.login_Info= new BehaviorSubject<string> (localStorage.getItem("loggedin") || "");
   }
   canActivate()
   {
-    return (this.loginInfo.getValue());
+    return (this.login_Info.getValue()=="2");
   }
-  canDeactivate()
+  getValue(): Observable<string> 
   {
-    return (this.loginInfo.getValue());
+    return this.login_Info.asObservable();
   }
-  getValue(): Observable<boolean> {
-    return this.loginInfo.asObservable();
+  getUsers()
+  {
+    return JSON.parse(localStorage.getItem("users") || "[]");
   }
-  setValue(newValue:boolean): void {
-    this.loginInfo.next(newValue);
+  checkUser(userdata:any)
+  {
+    let users = this.getUsers();
+    var found = false;
+        for(var i = 0; i < users.length; i++) {
+            if (users[i].mail ===userdata.mail &&
+              users[i].password ===userdata.password) {
+                found = true;
+                break;
+            }
+        }
+        return found;
+  }
+  Adduser(newuser:any)
+  {
+    let users = this.getUsers();
+    users.push({"mail":newuser.mail,"password":newuser.password});
+    localStorage.setItem("users", JSON.stringify(users));
+
+  }
+  setValue(new_Value:string) 
+  {
+    this.login_Info.next(new_Value);
+    localStorage.setItem("loggedin",new_Value);
   }
 }
 

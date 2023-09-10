@@ -5,6 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import {By} from "@angular/platform-browser";
 import { DebugElement } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 describe('MoviesScreenComponent', () => {
   let component: MoviesScreenComponent;
   let fixture: ComponentFixture<MoviesScreenComponent>;
@@ -12,16 +13,17 @@ describe('MoviesScreenComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule ,RouterTestingModule],
-      declarations: [MoviesScreenComponent]
+      declarations: [MoviesScreenComponent],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA]
     });
     fixture = TestBed.createComponent(MoviesScreenComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should be one 1 backclass', () => {
+  it('should be one 1 boxclass', () => {
     fixture.detectChanges();
-    const el: DebugElement[]=fixture.debugElement.queryAll(By.css('.backclass'));
+    const el: DebugElement[]=fixture.debugElement.queryAll(By.css('.box-class'));
     expect(el.length).toEqual(1);
   });
 

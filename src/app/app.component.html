@@ -1,15 +1,6 @@
-<nav
-    class="navbar navbar-expand-lg bg-body-tertiary position-fixed start-0 end-0 top-0 px-5 pb-3"
-    >
-    <div class="container-fluid">
-        <a class="navbar-brand" routerLink="movies-screen">Home</a>
-        <div id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="" (click)="check_status()">{{Out}}</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<div class="navvbar">
+    <a routerLink="home">Home</a>
+    <a routerLink="" (click)="check_signup_status()">{{Sign_up_text}}</a>
+    <a routerLink="" (click)="check_login_status()">{{Login_text}}</a>
+</div>
 <router-outlet></router-outlet>

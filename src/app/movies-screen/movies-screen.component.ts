@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { PostService } from '../services/post.service';
 import { HttpClient} from '@angular/common/http';
 import { AuthGuardService } from '../auth-guard.service';
-
+import { OnInit } from '@angular/core';
 @Component({
   selector: 'app-movies-screen',
   templateUrl: './movies-screen.component.html',
@@ -11,27 +11,34 @@ import { AuthGuardService } from '../auth-guard.service';
   
 
 })
-export class MoviesScreenComponent {
-  API_key: string ='6dde6f39000cee201e16d8d224b8a850';
+export class MoviesScreenComponent implements OnInit{
   posts:any;
-  image_paths : string = 'https://image.tmdb.org/t/p/w500/';
-  movies_paths: string = 'https://api.themoviedb.org/3/movie/';
   hide: boolean=false;
-  constructor(private service:PostService){}
-  
+  constructor(private service :PostService){}
   ngOnInit()
   {
-    this.service.getPosts().subscribe(
-    (data:any) =>
-    { 
-      this.posts = data;
-    }
+    this.service.getPosts().subscribe( 
+      {
+        next:(response) =>{ 
+        this.posts = response;
+       },
+       error: (error) => {
+        console.error('An error occured',error);
+       },
+     }
     )
     setTimeout(() => { 
       this.hide = true;
     }
-    ,1000);
-        
+    ,2000);
+  }
+  get_image_url(poster:string)
+  {
+    let path="";
+    path+=this.service.get_image_paths();
+    path+="/";
+    path+=poster;
+    return path;
   }
   
 }

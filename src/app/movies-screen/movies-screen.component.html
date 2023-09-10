@@ -1,15 +1,14 @@
 <mat-progress-bar class="movies-screen-mat-progress-bar" mode="indeterminate" *ngIf="!hide"> </mat-progress-bar>
-<div class="backclass">
-    <h3>Latest</h3>
+<div class="box-class">
+    <h3 style="color: yellow;margin-left: 3px;">Latest</h3>
     <div class="images-container">
-        <div class="ngFor1" *ngFor="let post of posts?.results">
+        <div style="width: 140px;"  *ngFor="let post of posts?.results">
             <a [routerLink]="['movie',post?.id]" style="text-decoration: none;"   >
                 <img 
-                src="{{image_paths + post?.poster_path}}"
+                src="{{get_image_url(post?.poster_path)}}"
                 class="im">
                 <p class="name"> {{ post?.title }}</p>
             </a>
         </div>
     </div>
 </div>
-

@@ -1,7 +1,6 @@
 import { Component , OnInit} from '@angular/core';
-import { PostService } from './services/post.service';
 import { AuthGuardService } from './auth-guard.service';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,29 +8,54 @@ import { Route, Router } from '@angular/router';
   styleUrls: ['./app.component.css','bootstrap.min.css']
 })
 export class AppComponent implements OnInit {
-  Out: string="Log in";
-  viewlogin: boolean=true;
+  Login_text: string="Log in";
+  sign_up_box_hide:boolean=false;
+  Sign_up_text:string="Sign up";
   constructor(private authservice:AuthGuardService,private route:Router) {}
   ngOnInit()
   {
     this.authservice.getValue().subscribe( (value) =>
     {
-      this.Out=value?"Log out":"Log in";
-      this.viewlogin=!value;
+      if(value==="0")
+      {
+        this.Login_text="Log in";
+        this.sign_up_box_hide=false; 
+        this.Sign_up_text="Sign up";
+      }
+      else if(value==="1")
+      {
+        this.Login_text="Log in";
+        this.sign_up_box_hide=false;
+        this.Sign_up_text="Sign up";
+      }
+      else
+      {
+        this.Login_text="Log out"
+        this.sign_up_box_hide=true;
+        this.Sign_up_text=" ";
+      }
     }
     );
   }
-  check_status()
+  check_login_status()
   {
-    console.log(this.Out);
-    if(this.Out==="Log out" && !this.viewlogin)
+    if(this.Login_text==="Log out")
     {
-      this.authservice.setValue(false);
+      this.authservice.setValue("1");
     }
     else
     {
+      this.authservice.setValue("1");
       this.route.navigate(["home"]);
     }
   }
-  title = 'movie-project';
+  check_signup_status()
+  {
+    if(this.Sign_up_text==="Sign up")
+    {
+      this.authservice.setValue("0");
+      this.route.navigate(["home"]);
+    }
+  }
+
 }

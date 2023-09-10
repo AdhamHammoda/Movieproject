@@ -5,34 +5,32 @@ img
     max-height:200px;
     border: 1px solid black;
 }
-.backclass
+
+
+.box-class
 {
     position: absolute; 
     top:20%;
 }
-.movie-data
-{
-    color: violet;
-}
+
+
 .images-container{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 30px;
     direction: ltr;
+    overflow: auto;
+    margin-left: 3px;
 }
-p 
-{
-    text-align: center;
-    margin:0;
-}
+
+
+
 .name 
 {
     margin-bottom: 4px;
     margin-top: 10px;
     font-weight: 700;
     color: white;
-}
-h3
-{
-    color: yellow;
+    text-align: center;
 }

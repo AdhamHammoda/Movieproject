@@ -4,6 +4,7 @@
   }
   
   
+  /* Log in box */
   .containers {
     flex-wrap: nowrap;
     justify-content: center;
@@ -33,16 +34,13 @@
   .whole .right .inside_right .form-control {
     width: 70%;
   }
-  .whole .right .inside_right .mybtn {
-    display: inline-block;
-  }
-  
+
   .col-6 {
     flex: 0 0 auto;
     width: 50%;
   }
  
-  
+  /* invalid form */
   input.ng-invalid.ng-touched {
     border:1px solid red;
   }

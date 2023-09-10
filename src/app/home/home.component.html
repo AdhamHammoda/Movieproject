@@ -1,1 +1,3 @@
-<app-login-screen *ngIf="viewlogin"></app-login-screen>
+<app-signup-screen *ngIf="viewstatus==='0'"></app-signup-screen>
+<app-login-screen *ngIf="viewstatus==='1'"></app-login-screen>
+<app-movies-screen *ngIf="viewstatus==='2'"></app-movies-screen>
