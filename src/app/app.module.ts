@@ -30,8 +30,7 @@ import { SignupScreenComponent } from './signup-screen/signup-screen.component';
     FormsModule,
     MatProgressSpinnerModule ,
     BrowserAnimationsModule ,
-    MatProgressBarModule
-    
+    MatProgressBarModule    
   ],
   providers: [AuthGuardService,PostService],
   bootstrap: [AppComponent]
