@@ -24,6 +24,14 @@ img
     margin-left: 3px;
 }
 
+  /*Progress bar*/
+.movies-screen-mat-progress-bar
+{
+    position: absolute;
+    top:15%;
+    background-color:black;
+}
+
 
 
 .name 

@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { NgForm} from '@angular/forms';
 import {  Router } from '@angular/router';
-import { AuthGuardService } from '../../guards/auth-guard.service';
+import { AuthGuardService } from '../../services/auth-guard.service';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-login-screen',
   templateUrl: './login-screen.component.html',
   styleUrls: ['./login-screen.component.css','bootstrap.min.css']
 })
 export class LoginScreenComponent {
-    constructor(private activatedroute: Router,private authservice:AuthGuardService){}
+    constructor(private activatedroute: Router,private authservice:AuthService){}
     onsubmit(form: NgForm)
     {
       if(form.submitted)

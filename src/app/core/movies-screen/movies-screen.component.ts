@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { PostService } from '../../services/post.service';
 import { HttpClient} from '@angular/common/http';
-import { AuthGuardService } from '../../guards/auth-guard.service';
+import { AuthGuardService } from '../../services/auth-guard.service';
 import { OnInit } from '@angular/core';
 @Component({
   selector: 'app-movies-screen',
   templateUrl: './movies-screen.component.html',
-  styleUrls: ['./movies-screen.component.css','../../bootstrap.min.css'],
+  styleUrls: ['./movies-screen.component.css','../../shared/bootstrap.min.css'],
   providers:[HttpClient,PostService,AuthGuardService],
   
 

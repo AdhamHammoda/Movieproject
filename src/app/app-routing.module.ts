@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MovieComponent } from './components/movies-screen/movie/movie.component';
+import { MovieComponent } from './core/movie/movie.component';
 import { mapToCanActivate ,mapToCanDeactivate} from '@angular/router';
-import { AuthGuardService } from './guards/auth-guard.service';
-import { LoginScreenComponent } from './components/login-screen/login-screen.component';
-import { SignupScreenComponent } from './components/signup-screen/signup-screen.component';
-import { MoviesScreenComponent } from './components/movies-screen/movies-screen.component';
+import { AuthGuardService } from './services/auth-guard.service';
+import { LoginScreenComponent } from './authentication/login-screen/login-screen.component';
+import { SignupScreenComponent } from './authentication/signup-screen/signup-screen.component';
+import { MoviesScreenComponent } from './core/movies-screen/movies-screen.component';
 const appRoutes: Routes = [
   {path:'login-screen',component:LoginScreenComponent,canActivate:mapToCanDeactivate([AuthGuardService])}
   ,

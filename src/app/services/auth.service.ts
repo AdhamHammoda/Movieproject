@@ -1,22 +1,13 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { Observable } from 'rxjs';
+import { BehaviorSubject,Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardService {
+export class AuthService {
   private loginInfo: BehaviorSubject<string>;
   constructor()
   {
     this.loginInfo= new BehaviorSubject<string> (localStorage.getItem("loggedIn") || "");
-  }
-  canActivate()
-  {
-    return (this.loginInfo.getValue()=="2");
-  }
-  canDeactivate()
-  {
-    return (this.loginInfo.getValue()!="2");
   }
   getValue(): Observable<string> 
   {

@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  private urlTopMovies='https://api.themoviedb.org/3/movie/top_rated?api_key=6dde6f39000cee201e16d8d224b8a850';
-  private imagePaths : string = 'https://image.tmdb.org/t/p/w500/';
-  private moviesPaths: string = 'https://api.themoviedb.org/3/movie/';
-  private apiKey: string ='6dde6f39000cee201e16d8d224b8a850';
   constructor(private httpClient: HttpClient) {}
   getPosts()
   {
-    return this.httpClient.get(this.urlTopMovies);
+    return this.httpClient.get(environment.domain);
   }
   getMovieData(url: string)
   {
@@ -19,15 +16,15 @@ export class PostService {
   }
   getImagePaths()
   {
-    return this.imagePaths;
+    return environment.imagePaths;
   }
   getMoviePaths()
   {
-    return this.moviesPaths;
+    return environment.moviesPaths;
   }
   getApiKey()
   {
-    return this.apiKey;
+    return environment.apiKey;
   }
 
 }

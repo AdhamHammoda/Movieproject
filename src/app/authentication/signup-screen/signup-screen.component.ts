@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthGuardService } from '../../guards/auth-guard.service';
 import { NgForm} from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-signup-screen',
   templateUrl: './signup-screen.component.html',
-  styleUrls: ['./signup-screen.component.css','../../bootstrap.min.css']
+  styleUrls: ['./signup-screen.component.css','../../shared/bootstrap.min.css']
 })
 export class SignupScreenComponent {
-    constructor(private activatedroute: Router,private authservice:AuthGuardService){}
+    constructor(private activatedroute: Router,private authservice:AuthService){}
     onsubmit(form: NgForm)
     {
       if(form.submitted)
