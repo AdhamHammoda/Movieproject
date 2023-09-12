@@ -5,24 +5,15 @@
     margin: 0px;
     box-sizing: border-box;
   }
-
-  /*Progress bar*/
-.movies-screen-mat-progress-bar
-{
-    position: absolute;
-    top:5%;
-    background-color:black;
-}
   
-  /* body */
-  body {
+   body {
     min-height: 100vh;
     width: 100%;
-    background-image: url("app/tmp.jpg");
+    background-image: url("app/shared/back-ground-photo.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
     margin:0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
   }  
-html, body { height: 100%; }
+html, body { height: 100%; } 
