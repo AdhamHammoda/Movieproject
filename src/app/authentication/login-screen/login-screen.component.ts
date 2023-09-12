@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm} from '@angular/forms';
 import {  Router } from '@angular/router';
-import { AuthGuardService } from '../../services/auth-guard.service';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-login-screen',
   templateUrl: './login-screen.component.html',

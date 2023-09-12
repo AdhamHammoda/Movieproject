@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MovieComponent } from './core/movie/movie.component';
 import { mapToCanActivate ,mapToCanDeactivate} from '@angular/router';
-import { AuthGuardService } from './services/auth-guard.service';
+import { AuthGuardService } from './authentication/guards/auth-guard.service';
 import { LoginScreenComponent } from './authentication/login-screen/login-screen.component';
 import { SignupScreenComponent } from './authentication/signup-screen/signup-screen.component';
 import { MoviesScreenComponent } from './core/movies-screen/movies-screen.component';
