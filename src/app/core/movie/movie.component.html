@@ -1,0 +1,17 @@
+<div class="body">
+    <div class="containers reg whole">
+      <div class="film">
+        <h1>{{movieData?.title}}</h1>
+        <div class="movieImage">
+          <img
+            [src]="getImageUrl(movieData?.poster_path)"
+            width="500"
+            height="500"
+          />
+        </div>
+        <p>
+        {{ movieData?.overview }}
+        </p>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,5 @@
+<div class="navvbar">
+    <button (click)="(NavigateToMovies())">Home</button>
+    <button *ngIf="!SignUpHide" (click)="CheckSignUpStatus()">{{SignUpText}}</button>
+    <button (click)="checkInLogInStatus()">{{loginText}}</button>
+</div>

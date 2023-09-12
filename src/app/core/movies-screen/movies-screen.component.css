@@ -1,0 +1,44 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+img
+{
+    max-width:200px;
+    max-height:200px;
+    border: 1px solid black;
+}
+
+
+.box-class
+{
+    position: absolute; 
+    top:20%;
+}
+
+
+.images-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    direction: ltr;
+    overflow: auto;
+    margin-left: 3px;
+}
+
+  /*Progress bar*/
+.movies-screen-mat-progress-bar
+{
+    position: absolute;
+    top:15%;
+    background-color:black;
+}
+
+
+
+.name 
+{
+    margin-bottom: 4px;
+    margin-top: 10px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+}

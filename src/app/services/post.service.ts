@@ -1,19 +1,30 @@
 import { Injectable } from '@angular/core';
-import { HttpClient ,HttpErrorResponse} from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  private urltop='https://api.themoviedb.org/3/movie/top_rated?api_key=6dde6f39000cee201e16d8d224b8a850';
-  private urlmovie="'https://api.themoviedb.org/3/movie/";
-  API_key: string ='6dde6f39000cee201e16d8d224b8a850';
   constructor(private httpClient: HttpClient) {}
   getPosts()
   {
-    return this.httpClient.get(this.urltop);
+    return this.httpClient.get(environment.domain);
   }
-  getmoviedata(url: string)
+  getMovieData(url: string)
   {
     return this.httpClient.get(url);
   }
+  getImagePaths()
+  {
+    return environment.imagePaths;
+  }
+  getMoviePaths()
+  {
+    return environment.moviesPaths;
+  }
+  getApiKey()
+  {
+    return environment.apiKey;
+  }
+
 }

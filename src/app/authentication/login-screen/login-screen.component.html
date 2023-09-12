@@ -1,0 +1,37 @@
+<div>
+  <div class="containers whole">
+    <div class="right col-6 m-auto">
+      <div class="inside_right">
+        <h2>Login Account</h2>
+        <form (ngSubmit)="onsubmit(f)" #f="ngForm">
+          <div class="form-group">
+            <input
+              class="form-control m-auto"
+              placeholder="Email"
+              type="email"
+              ngModel
+              name="useremail"
+              required=""
+              email
+              #em="ngModel">
+              <span class="help-block" *ngIf="!em.valid && em.touched" style="color:red">
+                Please enter a valid email!
+              </span>
+          </div>
+          <br>
+          <div class="form-group">
+            <input
+              class="form-control m-auto"
+              placeholder="Password"
+              type="password"
+              ngModel
+              name="pass"
+              required="">
+          </div>
+          <br>
+          <button type="button" class="btn btn-warning" type="submit" [disabled]="!f.valid">Sign in</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>  
