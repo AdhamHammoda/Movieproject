@@ -1,7 +1,7 @@
 import { Component ,OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { PostService } from '../../services/post.service';
+import { PostService } from '../../../services/post.service';
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
@@ -10,44 +10,44 @@ import { PostService } from '../../services/post.service';
 })
 export class MovieComponent implements OnInit {
  
-  movie_data: any;
-  movie_id: any;
+  movieData: any;
+  movieId: any;
   constructor(private activatedroute:ActivatedRoute,private service:PostService){}
   ngOnInit(): void {
-    this.get_route_id();
+    this.getRouteId();
   }
-  get_route_id()
+  getRouteId()
   {
       this.activatedroute.paramMap.subscribe(params => {
-      this.movie_id = params.get('id');
-      this.get_movie_data();
+      this.movieId = params.get('id');
+      this.getMovieData();
     })
   }
-  get_movie_data()
+  getMovieData()
   {
-    this.service.getmoviedata(this.get_movie_url()).subscribe({
+    this.service.getMovieData(this.getMovieUrl()).subscribe({
       next:(response) =>{ 
-      this.movie_data = response;
+      this.movieData = response;
      },
      error: (error) => {
       console.error('An error occured',error);
      },
    })
   }
-  get_movie_url()
+  getMovieUrl()
   {
     let path="";
-    path+=this.service.get_movie_paths();
-    path+=this.movie_id;
+    path+=this.service.getMoviePaths();
+    path+=this.movieId;
     path+="?";
     path+="api_key=";
-    path+=this.service.get_API_key();
+    path+=this.service.getApiKey();
     return path; 
   }
-  get_image_url(id:string) : string
+  getImageUrl(id:string) : string
   {
     var path:string="";
-    path+=this.service.get_image_paths();
+    path+=this.service.getImagePaths();
     path+=id;
     return path;
   }

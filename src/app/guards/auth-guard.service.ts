@@ -5,48 +5,49 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthGuardService {
-  private login_Info: BehaviorSubject<string>;
+  private loginInfo: BehaviorSubject<string>;
   constructor()
   {
-    this.login_Info= new BehaviorSubject<string> (localStorage.getItem("loggedin") || "");
+    this.loginInfo= new BehaviorSubject<string> (localStorage.getItem("loggedIn") || "");
   }
   canActivate()
   {
-    return (this.login_Info.getValue()=="2");
+    return (this.loginInfo.getValue()=="2");
+  }
+  canDeactivate()
+  {
+    return (this.loginInfo.getValue()!="2");
   }
   getValue(): Observable<string> 
   {
-    return this.login_Info.asObservable();
+    return this.loginInfo.asObservable();
   }
   getUsers()
   {
     return JSON.parse(localStorage.getItem("users") || "[]");
   }
-  checkUser(userdata:any)
+  checkUser(userData:any)
   {
     let users = this.getUsers();
     var found = false;
-        for(var i = 0; i < users.length; i++) {
-            if (users[i].mail ===userdata.mail &&
-              users[i].password ===userdata.password) {
+        for(var index = 0; index < users.length; index++) {
+            if (users[index].mail ===userData.mail &&
+              users[index].password ===userData.password) {
                 found = true;
                 break;
             }
         }
         return found;
   }
-  Adduser(newuser:any)
+  addUser(newuser:any)
   {
     let users = this.getUsers();
     users.push({"mail":newuser.mail,"password":newuser.password});
     localStorage.setItem("users", JSON.stringify(users));
-
   }
   setValue(new_Value:string) 
   {
-    this.login_Info.next(new_Value);
-    localStorage.setItem("loggedin",new_Value);
+    this.loginInfo.next(new_Value);
+    localStorage.setItem("loggedIn",new_Value);
   }
 }
-
-

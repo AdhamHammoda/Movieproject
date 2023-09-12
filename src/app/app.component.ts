@@ -1,5 +1,5 @@
 import { Component , OnInit} from '@angular/core';
-import { AuthGuardService } from './auth-guard.service';
+import { AuthGuardService } from './guards/auth-guard.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,9 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css','bootstrap.min.css']
 })
 export class AppComponent implements OnInit {
-  Login_text: string="Log in";
-  sign_up_box_hide:boolean=false;
-  Sign_up_text:string="Sign up";
+  loginText: string="Log in";
+  SignUpText: string="Sign up";
   constructor(private authservice:AuthGuardService,private route:Router) {}
   ngOnInit()
   {
@@ -18,44 +17,41 @@ export class AppComponent implements OnInit {
     {
       if(value==="0")
       {
-        this.Login_text="Log in";
-        this.sign_up_box_hide=false; 
-        this.Sign_up_text="Sign up";
+        this.loginText="Log in";
+        this.SignUpText="Sign up";
       }
       else if(value==="1")
       {
-        this.Login_text="Log in";
-        this.sign_up_box_hide=false;
-        this.Sign_up_text="Sign up";
+        this.loginText="Log in";
+        this.SignUpText="Sign up";
       }
       else
       {
-        this.Login_text="Log out"
-        this.sign_up_box_hide=true;
-        this.Sign_up_text=" ";
+        this.loginText="Log out"
+        this.SignUpText=" ";
       }
     }
     );
   }
-  check_login_status()
+  checkInLogInStatus()
   {
-    if(this.Login_text==="Log out")
+    if(this.loginText==="Log out")
     {
       this.authservice.setValue("1");
     }
     else
     {
       this.authservice.setValue("1");
-      this.route.navigate(["home"]);
+      this.SignUpText="Sign up";
+      this.route.navigate(["login-screen"]);
     }
   }
-  check_signup_status()
+  CheckSignUpStatus()
   {
-    if(this.Sign_up_text==="Sign up")
+    if(this.SignUpText==="Sign up")
     {
       this.authservice.setValue("0");
-      this.route.navigate(["home"]);
+      this.route.navigate(["signup-screen"]);
     }
   }
-
 }

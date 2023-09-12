@@ -3,9 +3,9 @@
     <h3 style="color: yellow;margin-left: 3px;">Latest</h3>
     <div class="images-container">
         <div style="width: 140px;"  *ngFor="let post of posts?.results">
-            <a [routerLink]="['movie',post?.id]" style="text-decoration: none;"   >
+            <a [routerLink]="['/movies-screen/movie',post?.id]" style="text-decoration: none;"   >
                 <img 
-                src="{{get_image_url(post?.poster_path)}}"
+                src="{{getImageUrl(post?.poster_path)}}"
                 class="im">
                 <p class="name"> {{ post?.title }}</p>
             </a>

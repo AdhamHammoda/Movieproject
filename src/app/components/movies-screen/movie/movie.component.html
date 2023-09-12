@@ -1,16 +1,16 @@
 <div class="body">
     <div class="containers reg whole">
       <div class="film">
-        <h1>{{movie_data?.title}}</h1>
+        <h1>{{movieData?.title}}</h1>
         <div class="movieImage">
           <img
-            [src]="get_image_url(movie_data?.poster_path)"
+            [src]="getImageUrl(movieData?.poster_path)"
             width="500"
             height="500"
           />
         </div>
         <p>
-        {{ movie_data?.overview }}
+        {{ movieData?.overview }}
         </p>
       </div>
     </div>
