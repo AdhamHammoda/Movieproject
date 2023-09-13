@@ -4,8 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { AuthGuardService } from './services/auth-guard.service';
-import { CoreModule } from './core/core.module';
+import { AuthGuardService } from './authentication/guards/auth-guard.service';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
@@ -19,7 +18,6 @@ import { SharedModule } from './shared/shared.module';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule ,
-    CoreModule,
     AuthenticationModule,
     SharedModule
   ],

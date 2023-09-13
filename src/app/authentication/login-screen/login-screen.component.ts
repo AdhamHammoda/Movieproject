@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm} from '@angular/forms';
 import {  Router } from '@angular/router';
-import { AuthGuardService } from '../../services/auth-guard.service';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-login-screen',
   templateUrl: './login-screen.component.html',
@@ -14,7 +13,7 @@ export class LoginScreenComponent {
     {
       if(form.submitted)
       {
-        let found:boolean=this.authservice.checkUser({"mail":form.value.useremail,"password":form.value.pass});
+        let found:boolean=this.authservice.checkUser({"mail":form.value.userEmail,"password":form.value.password});
         if(form.valid && found) 
         {
           this.authservice.setValue("2");

@@ -6,6 +6,8 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import {By} from "@angular/platform-browser";
 import { DebugElement } from '@angular/core';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { PostService } from 'src/app/services/post.service';
+import { HttpClient } from '@angular/common/http';
 describe('MoviesScreenComponent', () => {
   let component: MoviesScreenComponent;
   let fixture: ComponentFixture<MoviesScreenComponent>;
@@ -31,6 +33,9 @@ describe('MoviesScreenComponent', () => {
     fixture.detectChanges();
     let h3 = fixture.nativeElement.querySelector('h3');
     expect(h3.textContent).toContain("Latest");
+  });
+  it('should call getImageUrl() function', () => {
+    
   });
 
 

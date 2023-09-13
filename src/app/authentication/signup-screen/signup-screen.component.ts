@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm} from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signup-screen',
@@ -16,7 +16,7 @@ export class SignupScreenComponent {
       {
         if(form.valid) 
         {
-          this.authservice.addUser({"mail":form.value.useremail,"password":form.value.pass})
+          this.authservice.addUser({"mail":form.value.userEmail,"password":form.value.password})
           alert("User saved");
           this.authservice.setValue("1");
           this.activatedroute.navigate(["login-screen"]);

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { PostService } from '../../services/post.service';
 import { HttpClient} from '@angular/common/http';
-import { AuthGuardService } from '../../services/auth-guard.service';
+import { AuthGuardService } from '../../authentication/guards/auth-guard.service';
 import { OnInit } from '@angular/core';
 @Component({
   selector: 'app-movies-screen',

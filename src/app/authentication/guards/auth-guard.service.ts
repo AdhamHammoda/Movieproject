@@ -11,9 +11,4 @@ export class AuthGuardService {
     const val=(localStorage.getItem("loggedIn") || "");
     return (val==="2");
   }
-  canDeactivate()
-  {
-    const val=(localStorage.getItem("loggedIn") || "");
-    return (val!="2");
-  }
 }
