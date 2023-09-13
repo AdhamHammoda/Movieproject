@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardService {
-  constructor(){}
+export class LoginGuardService {
+
+  constructor() { }
   canActivate()
   {
     const val=(localStorage.getItem("loggedIn") || "");
-    return (val==="2");
+    return (val!="2");
   }
 }

@@ -16,7 +16,7 @@ export class SignupScreenComponent {
       {
         if(form.valid) 
         {
-          this.authservice.addUser({"mail":form.value.useremail,"password":form.value.pass})
+          this.authservice.addUser({"mail":form.value.userEmail,"password":form.value.password})
           alert("User saved");
           this.authservice.setValue("1");
           this.activatedroute.navigate(["login-screen"]);

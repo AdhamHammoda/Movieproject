@@ -13,7 +13,7 @@ export class LoginScreenComponent {
     {
       if(form.submitted)
       {
-        let found:boolean=this.authservice.checkUser({"mail":form.value.useremail,"password":form.value.pass});
+        let found:boolean=this.authservice.checkUser({"mail":form.value.userEmail,"password":form.value.password});
         if(form.valid && found) 
         {
           this.authservice.setValue("2");

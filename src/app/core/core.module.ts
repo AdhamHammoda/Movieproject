@@ -4,12 +4,14 @@ import { MoviesScreenComponent } from './movies-screen/movies-screen.component';
 import { MovieComponent } from './movie/movie.component';
 import  {RouterModule} from '@angular/router';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { CoreRoutingModule } from './core-routing.module';
 @NgModule({
   declarations: [MovieComponent,MoviesScreenComponent],
   imports: [
     CommonModule,
     RouterModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    CoreRoutingModule
   ],
   exports:[
     MovieComponent,
