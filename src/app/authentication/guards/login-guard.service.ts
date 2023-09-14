@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-
+import { Injectable , inject} from '@angular/core';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -9,6 +9,15 @@ export class LoginGuardService {
   canActivate()
   {
     const val=(localStorage.getItem("loggedIn") || "");
-    return (val!="2");
+    const router = inject(Router);
+    if(val!="2")
+    {
+      return true;
+    }
+    else
+    {
+      router.navigate(["movies-screen"]);
+      return false;
+    }
   }
 }

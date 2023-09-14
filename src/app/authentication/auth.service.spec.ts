@@ -13,4 +13,13 @@ describe('AuthService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it("should call the getUsers() function",() => {
+    const service= new AuthService();
+    spyOn(service,"getUsers");
+    const users=service.getUsers();
+    expect(service.getUsers).toHaveBeenCalled();
+
+
+  });
 });
