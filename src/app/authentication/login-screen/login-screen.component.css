@@ -4,45 +4,6 @@
   }
   
   
-  .containers {
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
- 
-  
-  .whole {
-    display: flex;
-    height: 100vh;
-  }
-  
-  .whole .right {
-    border-radius: 25px;
-    text-align: center;
-    color: #ffffff;
-    width: 30%;
-    padding: 2%;
-    background-color: rgb(44, 46, 67, 1);
-    min-width: 300px;
-  }
-  .whole .right .inside_right {
-    font-family: emoji;
-    margin-top: 30px;
-  }
-  .whole .right .inside_right .form-control {
-    width: 70%;
-  }
-  .whole .right .inside_right .mybtn {
-    display: inline-block;
-  }
-  
-  .col-6 {
-    flex: 0 0 auto;
-    width: 50%;
-  }
- 
-  
   input.ng-invalid.ng-touched {
     border:1px solid red;
   }

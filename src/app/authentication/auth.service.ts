@@ -22,8 +22,8 @@ export class AuthService {
     let users = this.getUsers();
     var found = false;
         for(var index = 0; index < users.length; index++) {
-            if (users[index].mail ===userData.mail &&
-              users[index].password ===userData.password) {
+            if (users[index].mail === userData.mail &&
+              users[index].password === userData.password) {
                 found = true;
                 break;
             }
@@ -36,9 +36,9 @@ export class AuthService {
     users.push({"mail":newuser.mail,"password":newuser.password});
     localStorage.setItem("users", JSON.stringify(users));
   }
-  setValue(new_Value:string) 
+  setValue(newValue:string) 
   {
-    this.loginInfo.next(new_Value);
-    localStorage.setItem("loggedIn",new_Value);
+    this.loginInfo.next(newValue);
+    localStorage.setItem("loggedIn",newValue);
   }
 }

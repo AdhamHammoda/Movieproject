@@ -5,19 +5,19 @@ import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-login-screen',
   templateUrl: './login-screen.component.html',
-  styleUrls: ['./login-screen.component.css','bootstrap.min.css']
+  styleUrls: ['./login-screen.component.css','../../shared/bootstrap.min.css']
 })
 export class LoginScreenComponent {
-    constructor(private activatedroute: Router,private authservice:AuthService){}
-    onsubmit(form: NgForm)
+    constructor(private activatedRoute: Router,private authService:AuthService){}
+    onSubmit(form: NgForm)
     {
       if(form.submitted)
       {
-        let found:boolean=this.authservice.checkUser({"mail":form.value.userEmail,"password":form.value.password});
+        let found:boolean=this.authService.checkUser({"mail":form.value.userEmail,"password":form.value.password});
         if(form.valid && found) 
         {
-          this.authservice.setValue("2");
-          this.activatedroute.navigate(["movies-screen"]);
+          this.authService.setValue("2");
+          this.activatedRoute.navigate(["movies-screen"]);
         }
         else
         {

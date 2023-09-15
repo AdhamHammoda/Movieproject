@@ -1,9 +1,9 @@
 <div>
-  <div class="containers whole">
-    <div class="right col-6 m-auto">
+  <div class="coreModule-containers coreModule-whole">
+    <div class="right coreModule-col-6 m-auto">
       <div class="inside_right">
         <h2>Login Account</h2>
-        <form (ngSubmit)="onsubmit(f)" #f="ngForm">
+        <form (ngSubmit)="onSubmit(form)" #form="ngForm">
           <div class="form-group">
             <input
               class="form-control m-auto"
@@ -29,7 +29,7 @@
               required="">
           </div>
           <br>
-          <button type="button" class="btn btn-warning" type="submit" [disabled]="!f.valid">Sign in</button>
+          <button type="button" class="btn btn-warning" type="submit" [disabled]="!form.valid">Sign in</button>
         </form>
       </div>
     </div>

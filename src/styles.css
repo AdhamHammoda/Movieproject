@@ -5,7 +5,62 @@
     margin: 0px;
     box-sizing: border-box;
   }
+
+  /* Login and Signup Box */
+  .coreModule-containers {
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+ 
   
+  .coreModule-whole {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .coreModule-whole .right {
+    border-radius: 25px;
+    text-align: center;
+    color: #ffffff;
+    width: 30%;
+    padding: 2%;
+    background-color: rgb(44, 46, 67, 1);
+    min-width: 300px;
+  }
+  .coreModule-whole .right .inside_right {
+    font-family: emoji;
+    margin-top: 30px;
+  }
+  .coreModule-whole .right .inside_right .form-control {
+    width: 70%;
+  }
+  .coreModule-whole .right .inside_right .mybtn {
+    display: inline-block;
+  }
+  
+  .coreModule-col-6 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+   
+/* mat-progress-spinner*/
+  .coreModule-spinner {
+    width: 100%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    
+}
+.coreModule-spinner mat-progress-spinner.override-spinner circle{
+    stroke: yellow;
+}
+
+/* body background image */
    body {
     min-height: 100vh;
     width: 100%;

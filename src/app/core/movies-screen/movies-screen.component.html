@@ -1,6 +1,10 @@
-<mat-progress-bar class="movies-screen-mat-progress-bar" mode="indeterminate" *ngIf="!hide"> </mat-progress-bar>
-<div class="box-class">
-    <h3 style="color: yellow;margin-left: 3px;">Latest</h3>
+<div class="coreModule-spinner">
+    <mat-progress-spinner class="override-spinner" *ngIf="!hide" mode="indeterminate"></mat-progress-spinner>
+</div>
+<div class="box-class" *ngIf="hide">
+    <h3 style="color:yellow;text-align: -webkit-center;">
+        {{title}}
+    </h3>
     <div class="images-container">
         <div style="width: 140px;"  *ngFor="let post of posts?.results">
             <a [routerLink]="['movie',post?.id]" style="text-decoration: none;"   >

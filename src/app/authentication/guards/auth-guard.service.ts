@@ -1,7 +1,5 @@
 import { Injectable,inject} from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { Observable } from 'rxjs';
-import { Router,ActivatedRouteSnapshot,RouterStateSnapshot } from '@angular/router';
+import { Router} from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })

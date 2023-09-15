@@ -13,7 +13,8 @@ export class MovieComponent implements OnInit {
   movieData: any;
   movieId: any;
   constructor(private activatedroute:ActivatedRoute,private service:PostService){}
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
     this.getRouteId();
   }
   getRouteId()

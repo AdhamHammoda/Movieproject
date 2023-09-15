@@ -14,8 +14,14 @@ import { OnInit } from '@angular/core';
 export class MoviesScreenComponent implements OnInit{
   posts:any;
   hide: boolean=false;
+  title:string="Top Movies";
   constructor(private service :PostService){}
   ngOnInit()
+  {
+    this.hideProgressBar();
+    this.getMovies();
+  }
+  getMovies()
   {
     this.service.getPosts().subscribe( 
       {
@@ -27,6 +33,9 @@ export class MoviesScreenComponent implements OnInit{
        },
      }
     )
+  }
+  hideProgressBar()
+  {
     setTimeout(() => { 
       this.hide = true;
     }
@@ -39,6 +48,5 @@ export class MoviesScreenComponent implements OnInit{
     path+="/";
     path+=poster;
     return path;
-  }
-  
+  } 
 }

@@ -8,56 +8,60 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   loginText: string="Log in";
-  SignUpText: string="Sign up";
-  SignUpHide: boolean=true;
-  constructor(private authservice:AuthService,private route:Router) {}
+  signUpText: string="Sign up";
+  signUpHide: boolean=true;
+  constructor(private authService:AuthService,private route:Router) {}
   ngOnInit()
   {
-    this.authservice.getValue().subscribe( (value) =>
+    this.initializeValue();
+  }
+  initializeValue()
+  {
+    this.authService.getValue().subscribe( (value) =>
     {
       if(value==="0")
       {
         this.loginText="Log in";
-        this.SignUpText="Sign up";
-        this.SignUpHide=false;
+        this.signUpText="Sign up";
+        this.signUpHide=false;
       }
       else if(value==="1")
       {
         this.loginText="Log in";
-        this.SignUpText="Sign up";
-        this.SignUpHide=false;
+        this.signUpText="Sign up";
+        this.signUpHide=false;
       }
       else
       {
         this.loginText="Log out"
-        this.SignUpText=" ";
-        this.SignUpHide=true;
+        this.signUpText=" ";
+        this.signUpHide=true;
       }
     }
     );
   }
-  checkInLogInStatus()
+  checkLogInStatus()
   {
     if(this.loginText==="Log out")
     {
-      this.authservice.setValue("1");
+      this.authService.setValue("1");
     }
     else
     {
-      this.authservice.setValue("1");
-      this.SignUpText="Sign up";
+      this.authService.setValue("1");
+      this.signUpText="Sign up";
     }
     this.route.navigate(["login-screen"]);
   }
-  CheckSignUpStatus()
+  checkSignUpStatus()
   {
-    if(this.SignUpText==="Sign up")
+    if(this.signUpText==="Sign up")
     {
-      this.authservice.setValue("0");
+      this.authService.setValue("0");
       this.route.navigate(["signup-screen"]);
     }
   }
-  NavigateToMovies()
+  navigateToMovies()
   {
     this.route.navigate(["movies-screen"]);
   }
