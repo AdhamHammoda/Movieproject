@@ -1,30 +1,43 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { JwtserviceService } from './jwtservice.service';
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient,private jwtservice:JwtserviceService) {}
   getPosts()
   {
-    return this.httpClient.get(environment.domain);
+    let token="";
+    this.jwtservice.getToken().subscribe( (value) =>
+    {
+      token=value;
+    }
+    )
+    const tokenString="Bearer "+token;
+    let headers=new HttpHeaders().set("Authorization",tokenString);
+    return this.httpClient.get(environment.domain,{headers});
+  }
+  getDomain()
+  {
+    return environment.domain;
   }
   getMovieData(url: string)
   {
-    return this.httpClient.get(url);
+    let token="";
+    this.jwtservice.getToken().subscribe( (value) =>
+    {
+      token=value;
+    }
+    )
+    const tokenString="Bearer "+token;
+    let headers=new HttpHeaders().set("Authorization",tokenString);
+    return this.httpClient.get(url,{headers});
   }
   getImagePaths()
   {
     return environment.imagePaths;
-  }
-  getMoviePaths()
-  {
-    return environment.moviesPaths;
-  }
-  getApiKey()
-  {
-    return environment.apiKey;
   }
 
 }

@@ -16,10 +16,19 @@ export class SignupScreenComponent {
       {
         if(form.valid) 
         {
-          this.authService.addUser({"mail":form.value.userEmail,"password":form.value.password})
-          alert("User saved");
-          this.authService.setValue("1");
-          this.activatedRoute.navigate(["login-screen"]);
+          this.authService.addUser({"mail":form.value.userEmail,"password":form.value.password}).subscribe( 
+            {
+              next:(response) =>{ 
+                alert("User saved successfully");
+                this.authService.setValue("1");
+                this.activatedRoute.navigate(["login-screen"]);
+             },
+             error: (error) => {
+              alert("User exists already");
+              form.reset();
+             },
+           }
+          )
         }
       }
     }

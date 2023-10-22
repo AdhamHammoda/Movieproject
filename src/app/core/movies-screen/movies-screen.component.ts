@@ -39,7 +39,7 @@ export class MoviesScreenComponent implements OnInit{
     setTimeout(() => { 
       this.hide = true;
     }
-    ,2000);
+    ,4000);
   }
   getImageUrl(poster:string)
   {

@@ -6,7 +6,7 @@
         {{title}}
     </h3>
     <div class="images-container">
-        <div style="width: 140px;"  *ngFor="let post of posts?.results">
+        <div style="width: 140px;"  *ngFor="let post of posts">
             <a [routerLink]="['movie',post?.id]" style="text-decoration: none;"   >
                 <img 
                 src="{{getImageUrl(post?.poster_path)}}"

@@ -38,11 +38,9 @@ export class MovieComponent implements OnInit {
   getMovieUrl()
   {
     let path="";
-    path+=this.service.getMoviePaths();
+    path+=this.service.getDomain();
+    path+="/";
     path+=this.movieId;
-    path+="?";
-    path+="api_key=";
-    path+=this.service.getApiKey();
     return path; 
   }
   getImageUrl(id:string) : string

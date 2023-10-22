@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject,Observable } from 'rxjs';
 @Injectable({
@@ -5,7 +6,7 @@ import { BehaviorSubject,Observable } from 'rxjs';
 })
 export class AuthService {
   private loginInfo: BehaviorSubject<string>;
-  constructor()
+  constructor(private httpClient: HttpClient)
   {
     this.loginInfo= new BehaviorSubject<string> (localStorage.getItem("loggedIn") || "");
   }
@@ -19,22 +20,13 @@ export class AuthService {
   }
   checkUser(userData:any)
   {
-    let users = this.getUsers();
-    var found = false;
-        for(var index = 0; index < users.length; index++) {
-            if (users[index].mail === userData.mail &&
-              users[index].password === userData.password) {
-                found = true;
-                break;
-            }
-        }
-        return found;
+    return this.httpClient.post("http://localhost:9090/users/authenticate"
+    ,{"username":userData.mail,"password":userData.password});
   }
   addUser(newuser:any)
   {
-    let users = this.getUsers();
-    users.push({"mail":newuser.mail,"password":newuser.password});
-    localStorage.setItem("users", JSON.stringify(users));
+    return this.httpClient.post("http://localhost:9090/users/register"
+    ,{"username":newuser.mail,"password":newuser.password});
   }
   setValue(newValue:string) 
   {

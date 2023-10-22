@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../authentication/auth.service'
 import { Router } from '@angular/router';
+import { JwtserviceService } from 'src/app/services/jwtservice.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -10,7 +11,7 @@ export class HeaderComponent {
   loginText: string="Log in";
   signUpText: string="Sign up";
   signUpHide: boolean=true;
-  constructor(private authService:AuthService,private route:Router) {}
+  constructor(private authService:AuthService,private route:Router,private jwtservice:JwtserviceService) {}
   ngOnInit()
   {
     this.initializeValue();
@@ -44,6 +45,7 @@ export class HeaderComponent {
   {
     if(this.loginText==="Log out")
     {
+      this.jwtservice.clearToken(); 
       this.authService.setValue("1");
     }
     else
